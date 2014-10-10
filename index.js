@@ -46,8 +46,8 @@ module.exports = function (dir, basenames) {
         return; 
       }
 
-      var basename = Path.basename(filename, ext);
-
+	  var basename = Path.basename(filename, ext).replace(/-([a-z])/g, function (m, w) { return w.toUpperCase(); });
+  
       requires[basename] = require(filepath);
     });
 
